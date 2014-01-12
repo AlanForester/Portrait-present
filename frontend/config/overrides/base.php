@@ -8,7 +8,7 @@ return [
     'import' => [
         'application.controllers.*',
         'application.controllers.actions.*',
-        'common.actions.*',
+        'common.actions.*', 
     ],
     'controllerMap' => [
         // Overriding the controller ID so we have prettier URLs without meddling with URL rules
