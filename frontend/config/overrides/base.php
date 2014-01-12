@@ -12,12 +12,12 @@ return [
     ],
     'controllerMap' => [
         // Overriding the controller ID so we have prettier URLs without meddling with URL rules
-        //'site' => 'FrontendSiteController'
+        'site' => 'SiteController'
     ],
     'components' => [
         'errorHandler' => [
             // Installing our own error page.
-            'errorAction' => 'site/error'
+            'errorAction' => 'site/error' 
         ],
         'urlManager' => [
             // Some sane usability rules
