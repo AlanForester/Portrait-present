@@ -21,6 +21,7 @@ return array(
 		'yiiwheels' =>  dirname(__FILE__) . '/../..' . '/common/lib/vendor/2amigos/yiiwheels'
 	),
 
+    
 	// application behaviors
 	'behaviors' => array(),
 
@@ -36,7 +37,8 @@ return array(
 		'bootstrap' => array(
 			'class' => 'bootstrap.components.TbApi',
 		),
-
+   
+            
 		'clientScript' => array(
 			'scriptMap' => array(
 				'bootstrap.min.css' => false,
