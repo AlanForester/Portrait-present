@@ -15,7 +15,7 @@ if (file_exists(ROOT_DIR . '/common/lib/vendor/autoload.php'))
 # NOTE that you must declare `YII_DEBUG` and `YII_TRACE_LEVEL`
 # BEFORE loading the framework or it will have no effect on Yii!
 
-# Launching the Yii framework.
+# Launching the Yii framework. 
 require_once ROOT_DIR . '/common/lib/vendor/yiisoft/yii/framework/YiiBase.php';
 # Include our own Yii singleton definition
 require_once ROOT_DIR . '/common/components/Yii.php';
