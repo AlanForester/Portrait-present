@@ -1,53 +1,19 @@
 <?php
 /**
+ * This is the code which assembles the global configuration for all entry points of the app.
  *
- * main.php configuration file
+ * Config is being constructed from three parts: base, environment and local configuration overrides,
+ * all of this files are in `overrides` subdirectory.
  *
- * @author Antonio Ramirez <amigo.cobos@gmail.com>
- * @link http://www.ramirezcobos.com/
- * @link http://www.2amigos.us/
- * @copyright 2013 2amigOS! Consultation Group LLC
- * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
+ * NOTE that this global config will be overridden further by the configuration of each individual entry point
+ *
+ * @see `console/config/main.php`
+ * @see `frontend/config/main.php`
+ * @see `backend/config/main.php`
  */
-return array(
-	'preload' => array('log'),
-	'aliases' => array(
-		'frontend' => dirname(__FILE__) . '/../..' . '/frontend',
-		'common' => dirname(__FILE__) . '/../..' . '/common',
-		'backend' => dirname(__FILE__) . '/../..' . '/backend',
-		'vendor' => dirname(__FILE__) . '/../..' . '/common/lib/vendor'
-	),
-	'import' => array(
-		'common.extensions.components.*',
-		'common.components.*',
-		'common.helpers.*',
-		'common.models.*',
-		'application.controllers.*',
-		'application.extensions.*',
-		'application.helpers.*',
-		'application.models.*'
-	),
-	'components' => array(
-		'db'=>array(
-			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
-		),
-		'errorHandler' => array(
-			'errorAction' => 'site/error',
-		),
-		'log' => array(
-			'class'  => 'CLogRouter',
-			'routes' => array(
-				array(
-					'class'        => 'CDbLogRoute',
-					'connectionID' => 'db',
-					'levels'       => 'error, warning',
-				),
-			),
-		),
-	),
-	'params' => array(
-		// php configuration
-		'php.defaultCharset' => 'utf-8',
-		'php.timezone'       => 'UTC',
-	)
+return CMap::mergeArray(
+    (require __DIR__ . '/overrides/base.php'),
+    (file_exists(__DIR__ . '/overrides/environment.php') ? require(__DIR__ . '/overrides/environment.php') : array()),
+    (file_exists(__DIR__ . '/overrides/local.php') ? require(__DIR__ . '/overrides/local.php') : array())
 );
+

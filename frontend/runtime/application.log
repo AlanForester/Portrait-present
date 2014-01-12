@@ -1,0 +1,50 @@
+2014/01/12 20:48:27 [info] [application] $_SERVER=array (
+  'HTTP_HOST' => 'pp.codetek.ru',
+  'HTTP_X_FORWARDED_FOR' => '109.60.244.47',
+  'HTTP_X_FORWARDED_PROTO' => 'http',
+  'HTTP_X_REAL_IP' => '109.60.244.47',
+  'HTTP_CONNECTION' => 'close',
+  'HTTP_USER_AGENT' => 'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:26.0) Gecko/20100101 Firefox/26.0',
+  'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'HTTP_ACCEPT_LANGUAGE' => 'ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3',
+  'HTTP_ACCEPT_ENCODING' => 'gzip, deflate',
+  'PATH' => '/usr/local/bin:/usr/bin:/bin',
+  'SERVER_SIGNATURE' => '<address>Apache/2.2.22 (Ubuntu) Server at pp.codetek.ru Port 80</address>
+',
+  'SERVER_SOFTWARE' => 'Apache/2.2.22 (Ubuntu)',
+  'SERVER_NAME' => 'pp.codetek.ru',
+  'SERVER_ADDR' => '83.222.105.6',
+  'SERVER_PORT' => '80',
+  'REMOTE_ADDR' => '83.222.105.2',
+  'DOCUMENT_ROOT' => '/home/alex/data/www/pp.codetek.ru/frontend/www',
+  'SERVER_ADMIN' => 'webmaster@pp.codetek.ru',
+  'SCRIPT_FILENAME' => '/home/alex/data/www/pp.codetek.ru/frontend/www/index.php',
+  'REMOTE_PORT' => '35755',
+  'GATEWAY_INTERFACE' => 'CGI/1.1',
+  'SERVER_PROTOCOL' => 'HTTP/1.0',
+  'REQUEST_METHOD' => 'GET',
+  'QUERY_STRING' => '',
+  'REQUEST_URI' => '/',
+  'SCRIPT_NAME' => '/index.php',
+  'PHP_SELF' => '/index.php',
+  'REQUEST_TIME_FLOAT' => 1389559707.591,
+  'REQUEST_TIME' => 1389559707,
+)
+2014/01/12 20:48:27 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection.connectionString cannot be empty.' in /home/alex/data/www/pp.codetek.ru/vendor/yiisoft/yii/framework/db/CDbConnection.php:370
+Stack trace:
+#0 /home/alex/data/www/pp.codetek.ru/vendor/yiisoft/yii/framework/db/CDbConnection.php(330): CDbConnection->open()
+#1 /home/alex/data/www/pp.codetek.ru/vendor/yiisoft/yii/framework/db/CDbConnection.php(308): CDbConnection->setActive(true)
+#2 /home/alex/data/www/pp.codetek.ru/vendor/yiisoft/yii/framework/base/CModule.php(387): CDbConnection->init()
+#3 /home/alex/data/www/pp.codetek.ru/vendor/yiisoft/yii/framework/caching/CDbCache.php(152): CModule->getComponent('db')
+#4 /home/alex/data/www/pp.codetek.ru/vendor/yiisoft/yii/framework/caching/CDbCache.php(77): CDbCache->getDbConnection()
+#5 /home/alex/data/www/pp.codetek.ru/vendor/yiisoft/yii/framework/base/CModule.php(387): CDbCache->init()
+#6 /home/alex/data/www/pp.codetek.ru/vendor/yiisoft/yii/framework/web/CUrlManager.php(216): CModule->getComponent('cache')
+#7 /home/alex/data/www/pp.codetek.ru/vendor/yiisoft/yii/framework/web/CUrlManager.php(206): CUrlManager->processRules()
+#8 /home/alex/data/www/pp.codetek.ru/vendor/yiisoft/yii/framework/base/CModule.php(387): CUrlManager->init()
+#9 /home/alex/data/www/pp.codetek.ru/vendor/yiisoft/yii/framework/base/CApplication.php(522): CModule->getComponent('urlManager')
+#10 /home/alex/data/www/pp.codetek.ru/vendor/yiisoft/yii/framework/web/CWebApplication.php(140): CApplication->getUrlManager()
+#11 /home/alex/data/www/pp.codetek.ru/vendor/yiisoft/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#12 /home/alex/data/www/pp.codetek.ru/frontend/www/index.php(23): CApplication->run()
+#13 {main}
+REQUEST_URI=/
+---

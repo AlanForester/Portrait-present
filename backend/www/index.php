@@ -1,24 +1,28 @@
 <?php
 /**
+ * Entry point script for backend.
  *
- * Bootstrap index file
- *
- * @author Antonio Ramirez <amigo.cobos@gmail.com>
- * @link http://www.ramirezcobos.com/
- * @link http://www.2amigos.us/
- * @copyright 2013 2amigOS! Consultation Group LLC
- * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
+ * @author: antonio ramirez <antonio@clevertech.biz>
+ * @author: mark safronov <hijarian@gmail.com>
  */
-require('./../../common/lib/vendor/autoload.php');
-require('./../../common/lib/vendor/yiisoft/yii/framework/yii.php');
 
-Yii::setPathOfAlias('Yiinitializr', './../../common/lib/Yiinitializr');
+# Loading project default init code for all entry points.
+require __DIR__.'/../../common/bootstrap.php';
 
-use Yiinitializr\Helpers\Initializer;
+# Setting up the frontend-specific aliases
+Yii::setPathOfAlias('backend', ROOT_DIR .'/backend');
+Yii::setPathOfAlias('www', ROOT_DIR . '/backend/www');
 
+# As we are using BootstrapFilter to include Booster, we have to define 'bootstrap' alias ourselves
+# Note that we are binding to Composer-installed version of YiiBooster
+Yii::setPathOfAlias('bootstrap', ROOT_DIR . '/vendor/clevertech/yii-booster/src');
 
-Initializer::create('./../', 'backend', array(
-	__DIR__ .'/../../common/config/main.php',
-	__DIR__ .'/../../common/config/env.php',
-	__DIR__ .'/../../common/config/local.php',
-))->run();
+# We use our custom-made WebApplication component as base class for backend app.
+require_once ROOT_DIR.'/backend/components/BackendWebApplication.php';
+
+# For obvious reasons, backend entry point is constructed of specialised WebApplication and config
+Yii::createApplication(
+    'BackendWebApplication',
+    ROOT_DIR.'/backend/config/main.php'
+)->run();
+

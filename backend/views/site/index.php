@@ -1,50 +1,42 @@
-<div class="container">
+<?php
+/**
+ * @var BackendSiteController $this
+ */
+$this->pageTitle=Yii::app()->name; ?>
 
-	<!-- Main hero unit for a primary marketing message or call to action -->
-	<div class="hero-unit">
-		<h1>Hello, world!</h1>
+<h1>Welcome to <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>
 
-		<p>This is a template for a simple marketing or informational website. It includes a large callout called the
-			hero unit and three supporting pieces of content. Use it as a starting point to create something more
-			unique.</p>
+<p>
+    This is the administrative side ("backend") of your application.
+    Everything related to it is contained inside <code>/backend</code> subdirectory.
+    You can treat this directory as a <code>/protected</code> subdirectory equivalent.
+    Backend includes YiiBooster as a widget toolkit, which is composed of both Twitter Bootstrap and jQuery UI toolkits.
+</p>
 
-		<p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-	</div>
+<p>Points of interest:</p>
 
-	<!-- Example row of columns -->
-	<div class="row">
-		<div class="span4">
-			<h2>Heading</h2>
+<ul>
+    <li>
+        <p>
+            <code>/backend/components/BackendController.php</code> is the base for all backend controllers.
+            It registers all required styles and scripts for common backend UI.
+        </p>
+    </li>
+    <li>
+        <p>Layout is <code>/backend/views/layouts/main.php</code>.</p>
+    </li>
+    <li>
+        <p>
+            Password-based login is already implemented for the backend.
+            You can look at its mechanics starting at <code>/backend/controllers/actions/PasswordLoginAction.php</code>.
+        </p>
+        <p>
+            Login/password can be seen in plaintext inside the second migration in <code>/console/migrations/</code>,
+            which creates users in DB.
+        </p>
+    </li>
+</ul>
 
-			<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-				condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis
-				euismod. Donec sed odio dui. </p>
 
-			<p><a class="btn" href="#">View details &raquo;</a></p>
-		</div>
-		<div class="span4">
-			<h2>Heading</h2>
 
-			<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-				condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis
-				euismod. Donec sed odio dui. </p>
 
-			<p><a class="btn" href="#">View details &raquo;</a></p>
-		</div>
-		<div class="span4">
-			<h2>Heading</h2>
-
-			<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula
-				porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
-				fermentum massa justo sit amet risus.</p>
-
-			<p><a class="btn" href="#">View details &raquo;</a></p>
-		</div>
-	</div>
-
-	<hr>
-
-	<footer>
-		<p>&copy; Company 2012</p>
-	</footer>
-</div>

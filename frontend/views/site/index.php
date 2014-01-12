@@ -1,50 +1,38 @@
-<div class="container">
+<?php
+/**
+ * Landing page view file
+ *
+ * @var FrontendSiteController $this
+ */
+?>
+<h1>Hello <?php echo Yii::app()->user->name;?></h1>
 
-	<!-- Main hero unit for a primary marketing message or call to action -->
-	<div class="hero-unit">
-		<h1>Hello, world!</h1>
+<p>
+    This is the public side ("frontend") of your application.
+    Everything related to it is contained inside <code>/frontend</code> subdirectory.
+    You can treat this directory as a <code>/protected</code> subdirectory equivalent.
+    Frontend is crystal clear HTML5 Boilerplate.
+    It's expected that you are going to write your own 100% custom design anyway.
+</p>
 
-		<p>This is a template for a simple marketing or informational website. It includes a large callout called the
-			hero unit and three supporting pieces of content. Use it as a starting point to create something more
-			unique.</p>
+<p>Points of interest:</p>
 
-		<p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-	</div>
+<ul>
+    <li>
+        <p>
+            <code>/backend/components/FrontendController.php</code> is the base for all frontend controllers.
+            It registers all required styles and scripts for common frontend UI.
+        </p>
+    </li>
+    <li>
+        <p>Layout is <code>/frontend/views/layouts/main.php</code>.</p>
+    </li>
+    <li>
+        <p>
+            Note that in this layout there is the Google Analytics code already inserted as a widget.
+            Just provide your GA ID in the <code>['params']['google.analytics.id']</code> section of a config,
+            by specifying it in the <code>/frontend/config/environments/prod.php</code>, for example.
+        </p>
+    </li>
+</ul>
 
-	<!-- Example row of columns -->
-	<div class="row">
-		<div class="span4">
-			<h2>Heading</h2>
-
-			<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-				condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis
-				euismod. Donec sed odio dui. </p>
-
-			<p><a class="btn" href="#">View details &raquo;</a></p>
-		</div>
-		<div class="span4">
-			<h2>Heading</h2>
-
-			<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-				condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis
-				euismod. Donec sed odio dui. </p>
-
-			<p><a class="btn" href="#">View details &raquo;</a></p>
-		</div>
-		<div class="span4">
-			<h2>Heading</h2>
-
-			<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula
-				porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
-				fermentum massa justo sit amet risus.</p>
-
-			<p><a class="btn" href="#">View details &raquo;</a></p>
-		</div>
-	</div>
-
-	<hr>
-
-	<footer>
-		<p>&copy; Company 2012</p>
-	</footer>
-</div>
