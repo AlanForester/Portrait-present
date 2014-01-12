@@ -18,7 +18,7 @@ return [
         //    'enableParamLogging' => !PRODUCTION_MODE,
         //    'charset' => 'utf8'
         //],
-        'db' => [
+        'db' => [ 
 			'connectionString' => 'mysql:host=localhost;dbname=pp',
 			'username' => 'pp',
 			'password' => '842655',
