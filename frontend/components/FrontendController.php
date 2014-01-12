@@ -33,6 +33,7 @@ class FrontendController extends CController
 
     private function registerAssets()
     {
+        Yii::app()->bootstrap->register();
         $publisher = Yii::app()->assetManager;
         $libraries = $publisher->publish(ROOT_DIR.'/common/packages');
 

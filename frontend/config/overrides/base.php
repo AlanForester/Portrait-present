@@ -6,18 +6,19 @@ return [
     // So our relative path aliases will resolve against the `/frontend` subdirectory and not nonexistent `/protected`
     'basePath' => 'frontend',
     'import' => [
+        'application.components.*',
         'application.controllers.*',
         'application.controllers.actions.*',
-        'common.actions.*',
+        'common.actions.*', 
     ],
     'controllerMap' => [
         // Overriding the controller ID so we have prettier URLs without meddling with URL rules
-        //'site' => 'FrontendSiteController'
+        'site' => 'SiteController'
     ],
     'components' => [
         'errorHandler' => [
             // Installing our own error page.
-            'errorAction' => 'site/error'
+            'errorAction' => 'site/error' 
         ],
         'urlManager' => [
             // Some sane usability rules
