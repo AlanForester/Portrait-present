@@ -11,7 +11,6 @@
 </tr></tbody></table>
 </td></tr>
 <tr><td colspan="2">
-
 <form id="VerifyCode"><div id="InsertCode"><table border="0" width="100%" cellspacing="10">
 <tbody><tr><td colspan="3"><input class="CodeMascAdd REDField" name="code" type="text" size="16" value=""></td></tr><tr><td>E-Mail:</td><td><input type="text" size="16" value="" class="REDField" name="email"></td><td><input type="submit" value="Продолжить"></td></tr></tbody></table></div>
 <input type="hidden" name="content" value="ajax_fw">
