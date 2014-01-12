@@ -30,7 +30,7 @@ return array(
     'FSHL' => array($vendorDir . '/kukulich/fshl'),
     'Console_CommandLine' => array($vendorDir . '/pear/console_commandline'),
     'Clio' => array($vendorDir . '/clio/clio/src'),
-    'Behat\\Mink\\Driver' => array($vendorDir . '/behat/mink-browserkit-driver/src', $vendorDir . '/behat/mink-goutte-driver/src', $vendorDir . '/behat/mink-selenium2-driver/src'),
+    'Behat\\Mink\\Driver' => array($vendorDir . '/behat/mink-selenium2-driver/src', $vendorDir . '/behat/mink-browserkit-driver/src', $vendorDir . '/behat/mink-goutte-driver/src'),
     'Behat\\MinkExtension' => array($vendorDir . '/behat/mink-extension/src'),
     'Behat\\Mink' => array($vendorDir . '/behat/mink/src'),
     'Behat\\Gherkin' => array($vendorDir . '/behat/gherkin/src'),

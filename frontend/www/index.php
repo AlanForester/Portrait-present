@@ -1,22 +1,23 @@
 <?php
 /**
+ * Entry point for the frontend.
  *
- * Bootstrap index file
- *
- * @author Antonio Ramirez <amigo.cobos@gmail.com>
- * @link http://www.ramirezcobos.com/
- * @link http://www.2amigos.us/
- * @copyright 2013 2amigOS! Consultation Group LLC
- * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
+ * @author: antonio ramirez <antonio@clevertech.biz>
+ * @author: mark safronov <hijarian@gmail.com>
  */
-require('./../../common/lib/vendor/autoload.php');
-require('./../../common/lib/vendor/yiisoft/yii/framework/yii.php');
-Yii::setPathOfAlias('Yiinitializr', './../../common/lib/Yiinitializr');
-use Yiinitializr\Helpers\Initializer;
-Initializer::create('./../', 'frontend', array(
-	__DIR__ .'/../../common/config/main.php',
-	__DIR__ .'/../../common/config/env.php',
-	'main',
-	'env',
-	'local'
-))->run();            
+
+# Loading project default init code for all entry points.
+require __DIR__.'/../../common/bootstrap.php';
+
+# Setting up the frontend-specific aliases
+Yii::setPathOfAlias('frontend', ROOT_DIR .'/frontend');
+Yii::setPathOfAlias('www', ROOT_DIR . '/frontend/www');
+
+# We use our custom-made WebApplication component as base class for frontend app.
+require_once ROOT_DIR.'/frontend/components/FrontendWebApplication.php';
+
+# For obvious reasons, backend entry point is constructed of specialised WebApplication and config
+Yii::createApplication(
+	'FrontendWebApplication',
+	ROOT_DIR.'/frontend/config/main.php'
+)->run();

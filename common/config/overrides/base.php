@@ -13,11 +13,19 @@ return [
         'application.models.*'
     ],
     'components' => [
+        //'db' => [
+        //    'schemaCachingDuration' => PRODUCTION_MODE ? 86400000 : 0, // 86400000 == 60*60*24*1000 seconds == 1000 days
+        //    'enableParamLogging' => !PRODUCTION_MODE,
+        //    'charset' => 'utf8'
+        //],
         'db' => [
-            'schemaCachingDuration' => PRODUCTION_MODE ? 86400000 : 0, // 86400000 == 60*60*24*1000 seconds == 1000 days
-            'enableParamLogging' => !PRODUCTION_MODE,
-            'charset' => 'utf8'
-        ],
+			'connectionString' => 'mysql:host=localhost;dbname=pp',
+			'username' => 'pp',
+			'password' => '842655',
+			'enableProfiling' => true,
+			'enableParamLogging' => true,
+			'charset' => 'utf8',
+		],
         'urlManager' => [
             'urlFormat' => 'path',
             'showScriptName' => false,
