@@ -6,6 +6,7 @@ return [
     // So our relative path aliases will resolve against the `/frontend` subdirectory and not nonexistent `/protected`
     'basePath' => 'frontend',
     'import' => [
+        'application.components.*',
         'application.controllers.*',
         'application.controllers.actions.*',
         'common.actions.*', 

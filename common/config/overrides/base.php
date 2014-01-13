@@ -3,7 +3,7 @@
  * Configuration parameters common to all entry points.
  */
 return [
-    'preload' => ['log'],
+    'preload' => ['log','bootstrap'],
     'import' => [
         'common.components.*',
         'common.models.*',
@@ -12,7 +12,16 @@ return [
         'application.components.*',
         'application.models.*'
     ],
+    'aliases' => array(
+        'bootstrap' => realpath(__DIR__ .'/../../lib/vendor/2amigos/yiistrap'), // change this if necessary
+    ),
+    'import' => array(
+        'bootstrap.helpers.TbHtml',
+    ),
     'components' => [
+        'bootstrap' => array(
+            'class' => 'bootstrap.components.TbApi',   
+        ),
         //'db' => [
         //    'schemaCachingDuration' => PRODUCTION_MODE ? 86400000 : 0, // 86400000 == 60*60*24*1000 seconds == 1000 days
         //    'enableParamLogging' => !PRODUCTION_MODE,
