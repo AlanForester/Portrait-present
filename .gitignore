@@ -1,5 +1,5 @@
 <<<<<<< HEAD
-/nbproject
+nbproject
 =======
 # Cache directories
 Thumbs.db
@@ -44,7 +44,7 @@ switch
 index
 
 # Composer-installed libraries (install them manually using `php composer.phar install` command)
-#/vendor
+/common/lib/vendor
  
 # Local overrides (you have to write them manually
 # after consulting with corresponding `local.example.php` scripts)
