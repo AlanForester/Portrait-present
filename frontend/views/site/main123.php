@@ -1,14 +1,20 @@
-    <?php $this->widget('bootstrap.widgets.TbNavbar', array(
-    'brandLabel' => 'Title',
-    'display' => null, // default is static to top
-    'items' => array(
+    <?php
+    $this->widget(
+    'yiiwheels.widgets.highcharts.WhHighCharts',
     array(
-    'class' => 'bootstrap.widgets.TbNav',
-    'items' => array(
-    array('label' => 'Home', 'url' => '#', 'active' => true),
-    array('label' => 'Link', 'url' => '#'),
-    array('label' => 'Link', 'url' => '#'),
+    'pluginOptions' => array(
+    'title' => array('text' => 'Fruit Consumption'),
+    'xAxis' => array(
+    'categories' => array('Apples', 'Bananas', 'Oranges')
     ),
+    'yAxis' => array(
+    'title' => array('text' => 'Fruit eaten')
     ),
-    ),
-    )); ?>
+    'series' => array(
+    array('name' => 'Jane', 'data' => array(1, 0, 4)),
+    array('name' => 'John', 'data' => array(5, 7, 3))
+    )
+    ) 
+    ) 
+    ); 
+    ?>

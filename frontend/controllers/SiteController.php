@@ -11,6 +11,7 @@
  */
 class SiteController extends FrontendController
 {
+    public $layout = "//layouts/main";
     
 	public function actionIndex()
 	{
@@ -19,6 +20,7 @@ class SiteController extends FrontendController
 	}
         public function actionMain()
 	{
+            $this->layout = "//layouts/main000";
 		$this->render('main123');
                 
 	}

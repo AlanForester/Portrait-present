@@ -14,13 +14,17 @@ return [
     ],
     'aliases' => array(
         'bootstrap' => realpath(__DIR__ .'/../../lib/vendor/2amigos/yiistrap'), // change this if necessary
+        'yiiwheels' => realpath(__DIR__ .'/../../lib/vendor/2amigos/yiiwheels'),
     ),
     'import' => array(
         'bootstrap.helpers.TbHtml',
     ),
-    'components' => [
+    'components' => [ 
         'bootstrap' => array(
             'class' => 'bootstrap.components.TbApi',   
+        ),
+         'yiiwheels' => array(
+            'class' => 'yiiwheels.YiiWheels',   
         ),
         //'db' => [
         //    'schemaCachingDuration' => PRODUCTION_MODE ? 86400000 : 0, // 86400000 == 60*60*24*1000 seconds == 1000 days
