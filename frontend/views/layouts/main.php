@@ -20,15 +20,17 @@
 <link rel="shortcut icon" href="favicon.ico" >
 <base href="">
 <title></title>
-<?php //не работает Yii::app()->clientScript->registerCssFile("css/stylesheet.css");?>
-<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
-<script type="text/javascript" src="js/jscript/jquery/jquery-1.8.3.min.js"></script>
-<script type="text/javascript" src="js/jscript/jquery/jquery.maskedinput.js"></script>
-<script type="text/javascript" src="js/jscript/jquery/ajaxupload.js"></script>
-<script type="text/javascript" src="js/jscript/jquery/plugins/fancybox/source/jquery.fancybox.js?v=2.1.3"></script>
-<link rel="stylesheet" type="text/css" href="js/jscript/jquery/plugins/fancybox/source/jquery.fancybox.css?v=2.1.2" media="screen" />
-<link rel="stylesheet" type="text/css" href="js/jscript/jquery/plugins/fw/style.css" />
-<script type="text/javascript" src="js/jscript/jquery/plugins/fw/freewall.js"></script>
+<?php 
+Yii::app()->clientScript->registerCssFile("css/stylesheet.css");
+Yii::app()->clientScript->registerScriptFile("js/jscript/jquery/jquery-1.8.3.min.js");
+Yii::app()->clientScript->registerScriptFile("js/jscript/jquery/jquery.maskedinput.js");
+Yii::app()->clientScript->registerScriptFile("js/jscript/jquery/ajaxupload.js");
+Yii::app()->clientScript->registerScriptFile("js/jscript/jquery/plugins/fancybox/source/jquery.fancybox.js?v=2.1.3");
+Yii::app()->clientScript->registerCssFile("js/jscript/jquery/plugins/fancybox/source/jquery.fancybox.css?v=2.1.2");
+Yii::app()->clientScript->registerCssFile("js/jscript/jquery/plugins/fw/style.css");
+Yii::app()->clientScript->registerScriptFile("js/jscript/jquery/plugins/fw/freewall.js");
+?>
+
 <style type="text/css">
 	.free-wall {
 		margin: 10px;
@@ -148,9 +150,7 @@ $(document).ready(function() {
 	});
 });
 </script>
-<?php if (isset($javascript) && file_exists(DIR_WS_JAVASCRIPT .
-basename($javascript))) { require(DIR_WS_JAVASCRIPT .
-basename($javascript)); } ?>
+
 </head>
 <body>
 <table border="0" width="100%" cellpadding="0" cellspacing="0"><tr><td>
@@ -161,7 +161,7 @@ basename($javascript)); } ?>
 <table border="0" width="100%" cellpadding="0" cellspacing="0">
     <tr>
     <td align="right" height="80" width="400">
-        <?php echo CHtml::image('img/ugolok_top_left.png','портрет на заказ');?>
+        <?php echo CHtml::image('img/ugolok_top_left.png','портрет на заказ', array('border'=>'0', 'title'=>'портрет на заказ', 'height'=>'61'));?>
         </td>
     <td class="mineTopMenu" width="100%">
 <a href="#">КАК ЗАКАЗАТЬ ПОРТРЕТ</a><a href="#">АКТИВИРОВАТЬ КАРТУ</a><a href="#">УСЛУГИ</a><a href="#">КОРПОРАТИВНЫМ КЛИЕНТАМ</a><a href="#">ДОСТАВКА</a><a href="#">ОТЗЫВЫ</a><a href="#">ГДЕ КУПИТЬ</a></td>

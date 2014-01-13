@@ -10,7 +10,7 @@ td.digitList {
 	text-align: center;
 	font: bold 50px Arial, Verdana, sans-serif;
 }
-.REDField {
+#freewall .REDField {
 	background: #ed2024;
 	border: 2px solid white;
 	color: white;
@@ -170,4 +170,13 @@ border-radius:5px;
 	margin: 0 20px;
 	color: black;
 	text-decoration: none;
+}
+#freewall table{
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: gray;
+}
+img {
+    max-width: none;
+    
 }

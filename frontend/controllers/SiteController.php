@@ -24,8 +24,22 @@ class SiteController extends FrontendController
 		$this->render('main123');
                 
 	}
+        
+        public function actionCardform()
+        {
+            if ((yii::app()->request->isAjaxRequest)&&(yii::app()->request->isPostRequest)) {
+                $email=yii::app()->request->getPost('email');
+                $ncard=yii::app()->request->getPost('ncard');
+                if ($email&&$ncard){
+                    echo $email.' '.$ncard;
+                    
+                }
+            }
+            yii::app()->end();
+             
+        }
 
-	/**
+        /**
 	 * This is the action to handle external exceptions.
 	 */
 	public function actionError()
