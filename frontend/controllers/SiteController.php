@@ -31,10 +31,12 @@ class SiteController extends FrontendController
                 $email=yii::app()->request->getPost('email');
                 $ncard=yii::app()->request->getPost('ncard');
                 if ($email&&$ncard){
-                    echo $email.' '.$ncard;
-                    
+                   $this->renderPartial('_step1', array(), false, true);
+                   
                 }
+               
             }
+            
             yii::app()->end();
              
         }

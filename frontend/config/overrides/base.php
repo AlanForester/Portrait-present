@@ -15,6 +15,15 @@ return [
         // Overriding the controller ID so we have prettier URLs without meddling with URL rules
         'site' => 'SiteController'
     ],
+    'modules'=>array(
+        'gii'=>array(
+            'class'=>'system.gii.GiiModule',
+            'password'=>'20071984',
+            'ipFilters'=>array('5.165.200.71'),
+            // 'newFileMode'=>0666,
+            // 'newDirMode'=>0777,
+        ),
+    ),
     'components' => [
         'errorHandler' => [
             // Installing our own error page.

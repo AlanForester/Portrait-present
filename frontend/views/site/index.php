@@ -13,20 +13,21 @@
 <tr><td colspan="2">
 <form id="VerifyCode"><div id="InsertCode"><table border="0" width="100%" cellspacing="10">
 <tbody><tr><td colspan="3"><input class="CodeMascAdd REDField" id="ncard" name="code" type="text" size="16" value=""></td></tr>
-    <tr><td>E-Mail:</td><td><input type="text" size="16" id="email" value="" class="REDField" name="email"></td><td><input type="submit" value="Продолжить"></td></tr></tbody></table></div>
-<input type="hidden" name="content" value="ajax_fw">
-<input type="hidden" name="action" value="VerifyCode">
-<?php echo TbHtml::ajaxButton('отправить данные', Yii::app()->createUrl('/site/cardform'), array(
+    <tr><td>E-Mail:</td><td><input type="text" size="16" id="email" value="" class="REDField" name="email"></td><td>
+            <?php echo TbHtml::ajaxButton('отправить данные', Yii::app()->createUrl('/site/cardform'), array(
     'type'=>'post',
     
     'data'=>array(
         'ncard'=>new CJavaScriptExpression('function(){return $("#ncard").val();}'), 
         'email'=>new CJavaScriptExpression('function(){return $("#email").val();}')
         ),
-    'success'=>'function (data){ $("#result").html(data)}'
+    'success'=>'function (data){ $("#CeateContent").html(data)}'
     ), array(
-        'color' => TbHtml::BUTTON_COLOR_PRIMARY));?>
-<div id="result"></div>
+        'color' => TbHtml::BUTTON_COLOR_WARNING,'style'=>'margin-top: -7px;'));?></td></tr></tbody></table></div>
+<input type="hidden" name="content" value="ajax_fw">
+<input type="hidden" name="action" value="VerifyCode">
+
+
 </form></td></tr></tbody></table></div></div>
 <div class="item size33" style="color: rgb(0, 0, 0); background-color: rgb(255, 231, 23);"><div class="cover"><div id="CeateContent">
 <table border="0" cellspacing="0" cellpadding="0" width="100%">
