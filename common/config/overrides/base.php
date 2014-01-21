@@ -10,6 +10,7 @@ return [
         // The following two imports are polymorphic and will resolve against wherever the `basePath` is pointing to.
         // We have components and models in all entry points anyway
         'application.components.*',
+        'application.helpers.*',
         'application.models.*'
     ],
     'aliases' => array(
@@ -20,6 +21,13 @@ return [
         'bootstrap.helpers.TbHtml',
     ),
     'components' => [ 
+        'image'=>array(
+          'class'=>'application.extensions.image.CImageComponent',
+            // GD or ImageMagick
+            'driver'=>'GD',
+            // ImageMagick setup path
+            'params'=>array('directory'=>'/opt/local/bin'),
+        ),
         'bootstrap' => array(
             'class' => 'bootstrap.components.TbApi',   
         ),

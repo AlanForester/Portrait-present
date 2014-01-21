@@ -1,5 +1,5 @@
 <div class="item size33" style="color: rgb(255, 255, 255); background-color: rgb(237, 32, 36);"><div class="cover">
-        <table border="0" width="100%" cellspacing="10" style="border-spacing: 10px;"><tbody><tr><td colspan="2">
+<table border="0" width="100%" cellspacing="10" style="border-spacing: 10px;"><tbody><tr><td colspan="2">
 <h2>Активировать карту</h2>
 <p>Вы держите в руках будущее произведение искусства – ПОРТРЕТ ПО ФОТОГРАФИИ* Ваш или дорогого Вам человека, выполненный на холсте маслом или карандашом профессиональным художником!</p></td></tr>
 <tr><td><?php echo CHtml::image('img/cart_blanc.png','карты предопалаты');?></td>
@@ -9,10 +9,21 @@
 </tr><tr><td class="digitList">2</td><td>Достаньте карту, сотрите защитный слой на оборотной стороне</td></tr><tr>
 </tr><tr><td class="digitList">3</td><td>Активируйте карту, введя код под защитным слоем</td></tr><tr>
 </tr></tbody></table>
+    
 </td></tr>
 <tr><td colspan="2">
 <form id="VerifyCode"><div id="InsertCode"><table border="0" width="100%" cellspacing="10">
-<tbody><tr><td colspan="3"><input class="CodeMascAdd REDField" id="ncard" name="code" type="text" size="16" value=""></td></tr>
+<tbody><tr><td colspan="3">
+            <?php $this->widget(
+            'yiiwheels.widgets.maskinput.WhMaskInput',
+            array(
+                'name'        => 'ncard',
+                'mask'        => '9999-9999-9999',
+                'val' => '1234-5678-9123',
+                'htmlOptions' => array('placeholder' => 'Введите 12 цифр кода', 'class'=>'REDField')
+            )
+        );?>
+            </td></tr>
     <tr><td>E-Mail:</td><td><input type="text" size="16" id="email" value="" class="REDField" name="email"></td><td>
             <?php echo TbHtml::ajaxButton('отправить данные', Yii::app()->createUrl('/site/cardform'), array(
     'type'=>'post',
@@ -21,14 +32,25 @@
         'ncard'=>new CJavaScriptExpression('function(){return $("#ncard").val();}'), 
         'email'=>new CJavaScriptExpression('function(){return $("#email").val();}')
         ),
-    'success'=>'function (data){ $("#CeateContent").html(data)}'
+     'beforeSend' => 'function(){
+            $("#email").before("<div class=\"loading\"></div>");
+         }',           
+    'success'=>'function (data){ 
+        $(".loading").remove();  
+        if(data != "0") {
+$("#CeateContent").html(data);} else {
+    $("#fail").html("Карта не существует или была активирована");
+}}
+'                
     ), array(
         'color' => TbHtml::BUTTON_COLOR_WARNING,'style'=>'margin-top: -7px;'));?></td></tr></tbody></table></div>
 <input type="hidden" name="content" value="ajax_fw">
 <input type="hidden" name="action" value="VerifyCode">
+<div id="fail"></div>
 
-
-</form></td></tr></tbody></table></div></div>
+</form>
+          
+    </td></tr></tbody></table></div></div>
 <div class="item size33" style="color: rgb(0, 0, 0); background-color: rgb(255, 231, 23);"><div class="cover"><div id="CeateContent">
 <table border="0" cellspacing="0" cellpadding="0" width="100%">
 <tbody><tr><td>

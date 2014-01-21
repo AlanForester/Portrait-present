@@ -1,25 +1,32 @@
 <?php
 
 /**
- * This is the model class for table "p_cards".
+ * This is the model class for table "p_images".
  *
- * The followings are the available columns in table 'p_cards':
+ * The followings are the available columns in table 'p_images':
  * @property integer $id
- * @property string $n_card
- * @property string $date_activ
+ * @property string $name
+ * @property string $img
+ * @property string $typek
+ * @property integer $activ_id
  *
  * The followings are the available model relations:
- * @property Activecard[] $activecards
- * @property Images[] $images
+ * @property Activecard $activ
  */
-class Cards extends CActiveRecord
+class Images extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
-	public function tableName()
+    
+      public static function i($id) {
+          return Yii::app()->createAbsoluteUrl("/image/view",array('id' => $id));
+      }
+
+
+      public function tableName()
 	{
-		return 'p_cards';
+		return 'p_images';
 	}
 
 	/**
@@ -30,11 +37,12 @@ class Cards extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('n_card', 'required'),
-			array('n_card', 'length', 'max'=>255),
+			array('name, img', 'required'),
+			array('activ_id', 'numerical', 'integerOnly'=>true),
+			array('name, typek', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, n_card, date_activ', 'safe', 'on'=>'search'),
+			array('id, name, img, typek, activ_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -46,8 +54,7 @@ class Cards extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'activecards' => array(self::HAS_MANY, 'Activecard', 'card_id'),
-			'images' => array(self::HAS_MANY, 'Images', 'activ_id'),
+			'activ' => array(self::BELONGS_TO, 'Activecard', 'activ_id'),
 		);
 	}
 
@@ -58,8 +65,10 @@ class Cards extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'n_card' => 'N Card',
-			'date_activ' => 'Date Activ',
+			'name' => 'Name',
+			'img' => 'Img',
+			'typek' => 'Typek',
+			'activ_id' => 'Activ',
 		);
 	}
 
@@ -82,8 +91,10 @@ class Cards extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('n_card',$this->n_card,true);
-		$criteria->compare('date_activ',$this->date_activ,true);
+		$criteria->compare('name',$this->name,true);
+		$criteria->compare('img',$this->img,true);
+		$criteria->compare('typek',$this->typek,true);
+		$criteria->compare('activ_id',$this->activ_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -94,7 +105,7 @@ class Cards extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Cards the static model class
+	 * @return Images the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

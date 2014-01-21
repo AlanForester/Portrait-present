@@ -69,26 +69,13 @@ abstract class BackendController extends CController
 
     private function registerAssets()
     {
+        Yii::app()->bootstrap->register();
         $publisher = Yii::app()->assetManager;
         $libraries = $publisher->publish(ROOT_DIR.'/common/packages');
 
-        // NOTE that due to limitations of CClientScript.registerPackage
-        // we cannot specify the javascript files to be registered before closing </body> tag.
-        // So our only option until Yii 2 is to open up the package and manually register everything in it.
-
-        $registry = Yii::app()->clientScript;
-        $registry
-            ->registerCssFile("{$libraries}/html5boilerplate/normalize.css")
-            ->registerCssFile("{$libraries}/html5boilerplate/main.css")
-            // See the Modernizr library documentation about the description of why we have to put it into HEAD tag and not before end of BODY, as everything else.
-            ->registerScriptFile("{$libraries}/modernizrjs/modernizr-2.6.2.min.js", CClientScript::POS_HEAD)
-            ->registerScriptFile("{$libraries}/html5boilerplate/plugins.js", CClientScript::POS_END)
-            ->registerScriptFile("{$libraries}/underscorejs/underscore-min.js", CClientScript::POS_END)
-            ->registerScriptFile("{$libraries}/backbonejs/backbone-min.js", CClientScript::POS_END);
+       
 
         $backend = $publisher->publish(ROOT_DIR.'/backend/packages');
-        $registry
-            ->registerCssFile("{$backend}/main-ui/main.css")
-            ->registerScriptFile("{$backend}/main-ui/main.js", CClientScript::POS_END);
+        
     }
 }

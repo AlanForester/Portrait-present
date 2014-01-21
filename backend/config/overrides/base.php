@@ -6,8 +6,10 @@ return [
     // So our relative path aliases will resolve against the `/backend` subdirectory and not nonexistent `/protected`
     'basePath' => 'backend',
     'import' => [
+        'application.components.*',
         'application.controllers.*',
         'application.controllers.actions.*',
+        'application.models.*',
         'common.actions.*'
     ],
     'controllerMap' => [
@@ -16,10 +18,9 @@ return [
     ],
     'components' => [
         // Backend uses the YiiBooster package for its UI
-        'bootstrap' => [
-            // `bootstrap` path alias was defined in global init script
-            'class' => 'bootstrap.components.Bootstrap'
-        ],
+        'bootstrap' => array(
+            'class' => 'bootstrap.components.TbApi',   
+        ),
         'errorHandler' => array(
             // Installing our own error page.
             'errorAction' => 'site/error'

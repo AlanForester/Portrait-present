@@ -1,11 +1,42 @@
+.modal.fade.in {
+top: 50%;
+width: 800px;
+margin-left: -400px;
+}
+.qq-upload-button {
+    float: left;
+    margin-left: 20px;
+    padding-left: 20px;
+}
+.qq-upload-list li {
+
+line-height: 25px;
+float: left;
 
 
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
+}
 
-
-
+.qq-upload-list li.qq-upload-success {
+    height: 26px;
+}
+.qq-drop-processing{
+    float: right;
+    width: 200px;
+}
+.qq-progress-bar {
+    float: left;
+    width: 200px;
+}
+.loading {
+    background-image: url("/img/processing.gif");
+    background-repeat: no-repeat;
+    background-position: right;
+    margin-left: 180px;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    float: right;    
+ }
 
 
 

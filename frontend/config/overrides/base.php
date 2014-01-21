@@ -9,6 +9,7 @@ return [
         'application.components.*',
         'application.controllers.*',
         'application.controllers.actions.*',
+        'application.models.*',
         'common.actions.*', 
     ],
     'controllerMap' => [
