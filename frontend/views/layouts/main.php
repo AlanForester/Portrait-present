@@ -30,40 +30,55 @@
                     Yii::app()->clientScript->registerCssFile("js/jscript/jquery/plugins/fancybox/source/jquery.fancybox.css?v=2.1.2");
                     Yii::app()->clientScript->registerCssFile("js/jscript/jquery/plugins/fw/style.css");
                     Yii::app()->clientScript->registerScriptFile("js/jscript/jquery/plugins/fw/freewall.js");
-
                     ?>
                     <script type="text/javascript" src="js/jscript/jquery/jquery.maskedinput.js"></script>
                     <script>
+                       
 
                     </script>
                     <style type="text/css">
                         .free-wall {
                             margin: 10px;
                         }
+                        
                     </style>
                     <script type="text/javascript">
+                        
                         $(document).ready(function() {
-                           
-                           
+                            var r = 0;
+                            $('#rightrot').live("click", function() {
+                                    r=parseInt(jQuery("#rot").text())+90;
+                                    jQuery("#rotateImg").rotate({animateTo:r});
+                                    jQuery("#rot").text(r);
+                            }
+                            );                          
+                            $('#leftrot').live("click", function() {
+                                
+                                    r=parseInt(jQuery("#rot").text())-90;
+                                    jQuery("#rotateImg").rotate({animateTo:r});
+                                    jQuery("#rot").text(r);
+                                    
+                            }
+                            ); 
                             $('#but1').live("click", function() {
                                 $('#divh1').animate({height: "show"}, 500);
                                 $('#divh2').animate({height: "hide"}, 500);
                                 $('#divh3').animate({height: "hide"}, 500);
                                 
-                                $("#typek").text('karikatura');
+                                $("#typek").text('1');
                             });
                             $('#but2').live("click", function() {
                                 $('#divh2').animate({height: "show"}, 500);
                                 $('#divh1').animate({height: "hide"}, 500);
                                 $('#divh3').animate({height: "hide"}, 500);
                                 
-                                $("#typek").text('karandash');
+                                $("#typek").text('2');
                             });
                             $('#but3').live("click", function() {
                                 $('#divh3').animate({height: "show"}, 500);
                                 $('#divh2').animate({height: "hide"}, 500);
                                 $('#divh1').animate({height: "hide"}, 500);
-                                $("#typek").text('maslo');
+                                $("#typek").text('3');
                             });
                             
                             $("#CountryList").live('change', function() {
@@ -83,6 +98,10 @@
                                 $('#customTabs #shipping-' + tab).attr('checked', 'checked');
                                 $('#popup').alignCenter();
                                 return false;
+                            });
+                            
+                            $('#phone').live('click', function () {
+                                if ($(this).val('')) {$(this).val('+7');}
                             });
                             
                             
@@ -187,6 +206,9 @@
 
                     </head>
                     <body>
+                        
+                        
+                  
                         
                                 
                                 <table border="0" width="100%" cellpadding="0" cellspacing="0"><tr><td>

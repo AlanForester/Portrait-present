@@ -27,11 +27,12 @@ abstract class BackendController extends CController
      *
      * @return array
      */
+       
     public function filters()
     {
         return array(
             'accessControl',
-            array('bootstrap.filters.BootstrapFilter - delete'),
+            //array('bootstrap.filters.BootstrapFilter - delete'),
         );
     }
 

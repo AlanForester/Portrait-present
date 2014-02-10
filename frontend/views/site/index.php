@@ -18,9 +18,9 @@
             'yiiwheels.widgets.maskinput.WhMaskInput',
             array(
                 'name'        => 'ncard',
-                'mask'        => '9999-9999-9999',
-                'val' => '1234-5678-9123',
-                'htmlOptions' => array('placeholder' => 'Введите 12 цифр кода', 'class'=>'REDField')
+                'mask'        => '99999-99999',
+                'val' => '12345-67823',
+                'htmlOptions' => array('placeholder' => 'Введите 10 цифр кода', 'class'=>'REDField')
             )
         );?>
             </td></tr>

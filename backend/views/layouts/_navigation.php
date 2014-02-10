@@ -1,39 +1,15 @@
-<?php
-/**
- * Top menu definition.
- *
- * @var BackendController $this
- */
-
-$this->widget(
-    'bootstrap.widgets.TbNavbar',
-    array(
-        'type' => 'inverse',
-        'brand' => 'Project name',
-        'brandUrl' => '/',
-        'collapse' => true,
-        'items' => array(
-            array(
-                'class' => 'bootstrap.widgets.TbMenu',
-                'items' => array(
-                    array('label' => 'Home', 'url' => array('/site/index')),
-                    array(
-                        'label' => 'Login',
-                        'url' => array('/site/login'),
-                        'visible' => Yii::app()->user->isGuest
-                    ),
-                    array(
-                        'label' => 'Logout (' . Yii::app()->user->name . ')',
-                        'url' => array('/site/logout'),
-                        'visible' => !Yii::app()->user->isGuest
-                    ),
-                    array(
-                        'label' => 'Users list',
-                        'url' => array('/user'),
-                        'visible' => !Yii::app()->user->isGuest
-                    )
-                ),
+<?php $this->widget('bootstrap.widgets.TbNavbar', array(
+    'brandLabel' => 'Title',
+    'display' => null, // default is static to top
+    'items' => array(
+        array(
+            'class' => 'bootstrap.widgets.TbNav',
+            'items' => array(
+                array('label' => 'Карты', 'url' => '/site/cards'),
+                array('label' => 'Заказы', 'url' => '/site/images'),
+                array('label' => 'Пользователи', 'url' => '/site/users'),
+                array('label' => 'Выход', 'url' => '/site/logout'),
             ),
         ),
-    )
-);
+    ),
+)); ?>

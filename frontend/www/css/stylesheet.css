@@ -19,7 +19,7 @@ td.digitList {
 	font: 14px Arial, Verdana, sans-serif;
 	height: 24px;
 	padding: 5px 10px;
-        placeholder
+        //placeholder
 }
 .REDField::-webkit-input-placeholder { color:#fff; }
 #modal input{
@@ -175,4 +175,15 @@ border-radius:5px;
 img {
     max-width: none;
     
+}
+#leftrot{
+    float: left;
+    width: 30px;
+    height: 30px;
+}
+#rightrot{
+    float: right;
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
 }

@@ -6,16 +6,9 @@
  * The followings are the available columns in table 'p_users':
  * @property integer $id
  * @property string $email
- * @property string $password
- * @property integer $role
- * @property string $name
- * @property string $ot4estvo
- * @property string $family
- * @property string $phone
  *
  * The followings are the available model relations:
- * @property Activecard[] $activecards
- * @property Roles $role0
+ * @property Cards[] $cards
  */
 class Users extends CActiveRecord
 {
@@ -35,12 +28,11 @@ class Users extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('email, role', 'required'),
-			array('role', 'numerical', 'integerOnly'=>true),
-			array('email, password, name, ot4estvo, family, phone', 'length', 'max'=>255),
+			array('email', 'required'),
+			array('email', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, email, password, role, name, ot4estvo, family, phone', 'safe', 'on'=>'search'),
+			array('id, email', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -52,8 +44,7 @@ class Users extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'activecards' => array(self::HAS_MANY, 'Activecard', 'user_id'),
-			'role0' => array(self::BELONGS_TO, 'Roles', 'role'),
+			'cards' => array(self::HAS_MANY, 'Cards', 'user_id'),
 		);
 	}
 
@@ -65,12 +56,6 @@ class Users extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'email' => 'Email',
-			'password' => 'Password',
-			'role' => 'Role',
-			'name' => 'Name',
-			'ot4estvo' => 'Ot4estvo',
-			'family' => 'Family',
-			'phone' => 'Phone',
 		);
 	}
 
@@ -94,12 +79,6 @@ class Users extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('email',$this->email,true);
-		$criteria->compare('password',$this->password,true);
-		$criteria->compare('role',$this->role);
-		$criteria->compare('name',$this->name,true);
-		$criteria->compare('ot4estvo',$this->ot4estvo,true);
-		$criteria->compare('family',$this->family,true);
-		$criteria->compare('phone',$this->phone,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

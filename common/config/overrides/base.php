@@ -1,9 +1,15 @@
 <?php
+
 /**
  * Configuration parameters common to all entry points.
  */
 return [
-    'preload' => ['log','bootstrap'],
+    'preload' => ['log', 'bootstrap'],
+    'aliases' => array(
+        'bootstrap' => realpath(__DIR__ . '/../../lib/vendor/2amigos/yiistrap'), // change this if necessary
+        'yiiwheels' => realpath(__DIR__ . '/../../lib/vendor/2amigos/yiiwheels'),
+        'image' => realpath(__DIR__ . '/../../extensions/image'),
+    ),
     'import' => [
         'common.components.*',
         'common.models.*',
@@ -11,56 +17,49 @@ return [
         // We have components and models in all entry points anyway
         'application.components.*',
         'application.helpers.*',
-        'application.models.*'
-    ],
-    'aliases' => array(
-        'bootstrap' => realpath(__DIR__ .'/../../lib/vendor/2amigos/yiistrap'), // change this if necessary
-        'yiiwheels' => realpath(__DIR__ .'/../../lib/vendor/2amigos/yiiwheels'),
-    ),
-    'import' => array(
+        'application.models.*',
         'bootstrap.helpers.TbHtml',
-    ),
-    'components' => [ 
-        'image'=>array(
-          'class'=>'application.extensions.image.CImageComponent',
+        'common.helpers.*',
+    ],
+    'components' => [
+        'image' => array(
+            'class' => 'image.CImageComponent',
             // GD or ImageMagick
-            'driver'=>'GD',
+            'driver' => 'ImageMagick',
             // ImageMagick setup path
-            'params'=>array('directory'=>'/opt/local/bin'),
+            //'params' => array('directory' => '/usr/bin'),
         ),
         'bootstrap' => array(
-            'class' => 'bootstrap.components.TbApi',   
+            'class' => 'bootstrap.components.TbApi',
         ),
-         'yiiwheels' => array(
-            'class' => 'yiiwheels.YiiWheels',   
+        'yiiwheels' => array(
+            'class' => 'yiiwheels.YiiWheels',
         ),
         //'db' => [
         //    'schemaCachingDuration' => PRODUCTION_MODE ? 86400000 : 0, // 86400000 == 60*60*24*1000 seconds == 1000 days
         //    'enableParamLogging' => !PRODUCTION_MODE,
         //    'charset' => 'utf8'
         //],
-        'db' => [ 
-			'connectionString' => 'mysql:host=localhost;dbname=pp',
-			'username' => 'pp',
-			'password' => '842655',
-			'enableProfiling' => true,
-			'enableParamLogging' => true,
-			'charset' => 'utf8',
-		],
+        'db' => [
+            'connectionString' => 'mysql:host=localhost;dbname=pp',
+            'username' => 'pp',
+            'password' => '842655',
+            'enableProfiling' => true,
+            'enableParamLogging' => true,
+            'charset' => 'utf8',
+        ],
         'urlManager' => [
             'urlFormat' => 'path',
             'showScriptName' => false,
             'urlSuffix' => '/',
         ],
-        'cache' => extension_loaded('apc')
-                ? [
-                    'class' => 'CApcCache',
-                ]
-                : [
-                    'class' => 'CDbCache',
-                    'connectionID' => 'db',
-                    'autoCreateCacheTable' => true,
-                    'cacheTableName' => 'cache',
+        'cache' => extension_loaded('apc') ? [
+            'class' => 'CApcCache',
+                ] : [
+            'class' => 'CDbCache',
+            'connectionID' => 'db',
+            'autoCreateCacheTable' => true,
+            'cacheTableName' => 'cache',
                 ],
         'messages' => [
             'basePath' => 'common.messages'

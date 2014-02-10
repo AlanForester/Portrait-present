@@ -81,7 +81,7 @@ echo TbHtml::button('Заказать', array(
             </tr>
         </tbody></table>
 </form>
-<div style="display: none;" id="typek">maslo</div>
+<div style="display: none;" id="typek">3</div>
 
 
 <?php
@@ -103,6 +103,7 @@ $this->widget('yiiwheels.widgets.modal.WhModal', array(
                 'ot4estvo' => new CJavaScriptExpression('function(){return $("#ot4estvo").val();}'),
                 'name' => new CJavaScriptExpression('function(){return $("#name").val();}'),
                 'typek' => new CJavaScriptExpression("function(){return $('#typek').text();}"),
+                'rot' => new CJavaScriptExpression("function(){return $('#rot').text();}"),
                 'coment' => new CJavaScriptExpression('function(){return $("#coment").val();}'),
                 'options_delivery' => new CJavaScriptExpression("function(){return $('#options_delivery').text();}"),
                 'info_delivery' => new CJavaScriptExpression("function(){return $('input[name=\"flatsv\"]:checked').val();}"),

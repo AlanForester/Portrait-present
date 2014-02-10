@@ -20,7 +20,7 @@ return [
         'gii'=>array(
             'class'=>'system.gii.GiiModule',
             'password'=>'20071984',
-            'ipFilters'=>array('5.165.200.71'),
+            'ipFilters'=>array('176.212.77.10','109.60.244.47','78.111.147.249'),
             // 'newFileMode'=>0666,
             // 'newDirMode'=>0777,
         ),

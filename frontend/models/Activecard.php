@@ -4,14 +4,12 @@
  * This is the model class for table "p_activecard".
  *
  * The followings are the available columns in table 'p_activecard':
- * @property integer $id
  * @property integer $card_id
  * @property integer $user_id
- * @property string $date_activ
  *
  * The followings are the available model relations:
- * @property Users $user
  * @property Cards $card
+ * @property Users $user
  */
 class Activecard extends CActiveRecord
 {
@@ -47,8 +45,8 @@ class Activecard extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'user' => array(self::BELONGS_TO, 'Users', 'user_id'),
 			'card' => array(self::BELONGS_TO, 'Cards', 'card_id'),
+			'user' => array(self::BELONGS_TO, 'Users', 'user_id'),
 		);
 	}
 
@@ -58,10 +56,8 @@ class Activecard extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			
 			'card_id' => 'Card',
 			'user_id' => 'User',
-			
 		);
 	}
 
@@ -83,10 +79,8 @@ class Activecard extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		
 		$criteria->compare('card_id',$this->card_id);
 		$criteria->compare('user_id',$this->user_id);
-	
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

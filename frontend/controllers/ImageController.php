@@ -12,9 +12,9 @@
  */
 class ImageController extends FrontendController {
     
-    public $layout = "//layouts/image";
+    //public $layout = "//layouts/image";
     
-    public function actionView($id) {
+    public function actionView1($id) {
         
         $im = new Imagick( __DIR__."/../../media/images/".$id.".jpg" );
         header('Content-type: image/jpg');

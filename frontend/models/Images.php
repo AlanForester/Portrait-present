@@ -9,25 +9,26 @@
  * @property string $img
  * @property string $typek
  * @property integer $activ_id
+ * @property string $options_delivery
+ * @property string $info_delivery
+ * @property string $coment
  *
  * The followings are the available model relations:
- * @property Activecard $activ
+ * @property Cards $activ
  */
 class Images extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
-    
-      public static function i($id) {
-          return Yii::app()->createAbsoluteUrl("/image/view",array('id' => $id));
-      }
-
-
-      public function tableName()
+	public function tableName()
 	{
 		return 'p_images';
 	}
+        
+          public static function i($id) {
+          return Yii::app()->createAbsoluteUrl("/image/view1/",array('id' => $id));
+      }
 
 	/**
 	 * @return array validation rules for model attributes.
@@ -37,12 +38,12 @@ class Images extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, img', 'required'),
+			array('img', 'required'),
 			array('activ_id', 'numerical', 'integerOnly'=>true),
-			array('name, typek', 'length', 'max'=>255),
+			array('name, typek, options_delivery', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, img, typek, activ_id', 'safe', 'on'=>'search'),
+			array('id, name, img, typek, activ_id, options_delivery, info_delivery, coment', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -54,7 +55,7 @@ class Images extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'activ' => array(self::BELONGS_TO, 'Activecard', 'activ_id'),
+			'activ' => array(self::BELONGS_TO, 'Cards', 'activ_id'),
 		);
 	}
 
@@ -69,6 +70,9 @@ class Images extends CActiveRecord
 			'img' => 'Img',
 			'typek' => 'Typek',
 			'activ_id' => 'Activ',
+			'options_delivery' => 'Options Delivery',
+			'info_delivery' => 'Info Delivery',
+			'coment' => 'Coment',
 		);
 	}
 
@@ -95,6 +99,9 @@ class Images extends CActiveRecord
 		$criteria->compare('img',$this->img,true);
 		$criteria->compare('typek',$this->typek,true);
 		$criteria->compare('activ_id',$this->activ_id);
+		$criteria->compare('options_delivery',$this->options_delivery,true);
+		$criteria->compare('info_delivery',$this->info_delivery,true);
+		$criteria->compare('coment',$this->coment,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

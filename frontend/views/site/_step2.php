@@ -1,6 +1,13 @@
 
+<?php Yii::app()->clientScript->registerScriptFile("http://www.xiper.net/examples/js-plugins/effects/jqueryrotate/js/jqueryrotate.2.1.js");?>
 <div id="popup1" class="" ><form id="CheckOutShort" method="post"><table border="0">
-            <tbody><tr><td><img class="UserPhotoLoad" src="<?=Images::i($card_id)?>"></td><td><table border="0" width="100%">
+            <tbody><tr><td style="width: 448px; text-align: center; padding-top: 50px;"><img class="UserPhotoLoad" id="rotateImg" src="<?=Images::i($card_id)?>"><br>
+                        <div id="leftrot" >-90</div> <div id="rightrot">+90</div><div id="rot" style="display: none">0</div>
+                    
+                    
+                    
+                    
+                    </td><td><table border="0" width="100%">
 			  <tbody><tr>
                 <td class="main">Имя:</td>
                 <td class="main"><input type="text" class="input-class" id="name" name="firstname" value="<?=$name?>">&nbsp;<span class="inputRequirement">*</span></td>
@@ -19,9 +26,9 @@
             'yiiwheels.widgets.maskinput.WhMaskInput',
             array(
                 'name'        => 'telephone',
-                'mask'        => '(999) 999-9999',
+                'mask'        => '+7(999) 999-9999',
                 'val' => $phone,
-                'htmlOptions' => array('placeholder' => $phone, 'val'=>$phone, 'id'=>'phone')
+                'htmlOptions' => array('placeholder' => '+7(345)345-3454',  'id'=>'phone')
             )
         );?>&nbsp;<span class="inputRequirement">*</span></td>
               </tr>
