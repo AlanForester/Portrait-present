@@ -152,7 +152,7 @@ class SiteController extends FrontendController
         
         
          public function actionZakazend() {
-            echo '<div style="text-align:center; padding:20px;">Спасибо<br> Ближайшее время наши менеджеры свяжутся с Вами</div>';
+            
             $card_id=yii::app()->request->getPost('card_id');
             $user_id=yii::app()->request->getPost('user_id');
             $phone=yii::app()->request->getPost('phone');
@@ -199,28 +199,28 @@ class SiteController extends FrontendController
             $image->save();
             unlink(__DIR__."/../../media/images/".$card_id);
             
-            $from = 'webbrend.ru@yandex.ru';
             $hash_code = rand(100000, 999999);
+            
+            $card = Cards::model()->findByAttributes(array('id' => $card_id));
+            $card->hash = date("Y-m-d");
+            $card->save();
+            
+            $from = 'webbrend.ru@yandex.ru';
             $subject = "Подтвержение регистрации";
             $message = "Для завершения регистрации карты передте по ссылке: " .
             "http://pp.codetek.ru/activatecard.php?hash=".$hash_code."&card_id=".$card_id;
 
              
-            if (!mail($user_email, $subject, $message, 'From: ' . $from))
-               
+            if (!mail($user->email, $subject, $message, 'From: ' . $from))
                echo "Ошибка отправки сообщения";
             else
              {
-               // если письмо отправилось, то добавляем пользователя в базу данных с сгенерированным хеш кодом для активации
-               $conn = $this->ConnectDB();
-               $conn->query("insert into users values (0, '$user_login', '$user_passwd', '$user_email', '$user_name', '$user_city', '$user_phone', '$hash_code', false)");
-
-               echo "<center><br><a href='../index.php'>На указанный почтовый ящик отправлено письмо с ссылкой для активации вашего личного кабинета.</a></center>";
+               echo "<center><br>На указанный почтовый ящик отправлено письмо с ссылкой для активации вашего личного кабинета.</center>";
              }
-             
+            /* 
             $card = Cards::model()->findByAttributes(array('id' => $card_id));
             $card->date_activ = date("Y-m-d");
-            $card->save();
+            $card->save();*/
             
 yii::app()->end();
         }

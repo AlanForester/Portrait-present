@@ -1,5 +1,7 @@
 
 <?php Yii::app()->clientScript->registerScriptFile("http://www.xiper.net/examples/js-plugins/effects/jqueryrotate/js/jqueryrotate.2.1.js");?>
+ <?php Yii::app()->clientScript->registerScriptFile("/js/kladr/jquery.kladr.min.js");?>
+<?php Yii::app()->clientScript->registerScriptFile("/js/kladr/example4.js");?> 
 <div id="popup1" class="" ><form id="CheckOutShort" method="post"><table border="0">
             <tbody><tr><td style="width: 448px; text-align: center; padding-top: 50px;"><img class="UserPhotoLoad" id="rotateImg" src="<?=Images::i($card_id)?>"><br>
                         <div id="leftrot" >-90</div> <div id="rightrot">+90</div><div id="rot" style="display: none">0</div>
@@ -33,6 +35,8 @@
         );?>&nbsp;<span class="inputRequirement">*</span></td>
               </tr>
 </tbody></table>
+
+                        
 Код карты предоплаты<input type="radio" name="payment" value="cartcod" checked=""><div id="customTabs"><ul>
 <li data-sid="flatsv"><a href="#" data-href="tabs-1">Самовывоз из OUTPOST</a></li>
 <li data-sid="flattk"><a href="#" data-href="tabs-2">Доставка</a></li>
@@ -44,7 +48,52 @@
 </div>
 <div id="tabs-2" style="display: none;">
 <p><input type="radio" id="shipping-tabs-2" name="shipping" value="flattk_flattk">&nbsp;Стоимость доставки уточниться после обработки заказа</p>
-<p></p><table border="0">              <tbody><tr>
+<p></p>
+
+<div class="add-panel">
+            <div class="wrp">
+                <form class="add-panel__request regular__ctrls">
+                    <div class="ffield">
+                        <label class="ffield__lbl">
+                            Город
+                        </label>
+                        <input name="city" type="text" class="long" autocomplete="off">
+                    </div>
+                    <div class="ffield">
+                        <label class="ffield__lbl">
+                            Улица
+                        </label>
+                        <input name="street" type="text" class="long" autocomplete="off">
+                    </div>
+                    <div class="ffield">
+                        <label class="ffield__lbl">
+                            Номер дома
+                        </label>
+                        <input name="building" type="text" class="small" autocomplete="off">
+
+                        <label class="ffield__lbl2">
+                            Корпус/строение
+                        </label>
+                        <input name="building-add" type="text" class="small">
+                        <label class="ffield__lbl2">
+                            Почтовый индекс:
+                        </label>
+                            <input name="zip" id="zip" type="text" class="small" value="">
+                            
+                    </div>
+                    
+                </form>
+                
+            </div>
+        </div>
+    
+<div id="kladr_autocomplete"><ul class="kladr_autocomplete_city"></ul><div class="spinner kladr_autocomplete_city_spinner"></div><ul class="kladr_autocomplete_street"></ul><div class="spinner kladr_autocomplete_street_spinner"></div><ul class="kladr_autocomplete_building"></ul><div class="spinner kladr_autocomplete_building_spinner"></div></div>                       
+ 
+ 
+
+
+
+<table border="0">              <tbody><tr>
                 <td class="main">Адрес:</td>
                 <td class="main"><input type="text" id="street_address" class="input-class" name="street_address">&nbsp;<span class="inputRequirement">* Пример: ул. Мира 346, кв. 78</span></td>
               </tr>              <tr>

@@ -30,7 +30,21 @@
                     Yii::app()->clientScript->registerCssFile("js/jscript/jquery/plugins/fancybox/source/jquery.fancybox.css?v=2.1.2");
                     Yii::app()->clientScript->registerCssFile("js/jscript/jquery/plugins/fw/style.css");
                     Yii::app()->clientScript->registerScriptFile("js/jscript/jquery/plugins/fw/freewall.js");
+        
+     
+        
+        
+        
+        
                     ?>
+                   
+                    <link href="http://kladr-api.ru/examples/css/lib/jquery.kladr.min.css" rel="stylesheet">
+       
+        
+        
+                    
+                    
+                    
                     <script type="text/javascript" src="js/jscript/jquery/jquery.maskedinput.js"></script>
                     <script>
                        
@@ -201,15 +215,15 @@
                                 });
                                 return false;
                             });
+                            
+                            
                         });
                     </script>
 
                     </head>
                     <body>
-                        
-                        
-                  
-                        
+                                     
+                     
                                 
                                 <table border="0" width="100%" cellpadding="0" cellspacing="0"><tr><td>
                                             <!-- warnings //-->
